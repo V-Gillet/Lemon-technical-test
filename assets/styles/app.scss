@@ -1,5 +1,20 @@
-body {
-    background-color: lightgray;
-}
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap');
+
+$primary : #abcc00;
+$dark : #1a1a1a;
+$light : #fafafa;
+$font : 'Sarabun', sans-serif;
 
 @import "~bootstrap/scss/bootstrap";
+
+body{
+    font-family: $font;
+}
+
+.register-container{
+    background-image: url(../images/Lemon.png);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height : calc(80vh - 48px);
+}
