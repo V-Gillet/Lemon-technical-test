@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+
+
+	<main class="container">
+		<h1 class=" text-primary text-center mt-5">Bonjour, vous êtes connecté en tant que :
+			{{user.firstname ~ ' ' ~ user.lastname}}</h1>
+		<div class="d-flex justify-content-center mt-5">
+			<a href="{{ path('app_logout')}}" class="btn btn-danger">Se déconnecter</a>
+		</div>
+	</main>
+{% endblock %}
