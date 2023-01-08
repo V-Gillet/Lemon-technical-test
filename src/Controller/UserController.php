@@ -8,14 +8,13 @@ use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[IsGranted('ROLE_ADMIN')]
-#[Route('/user')]
+//IsGranted here is useless since I specified that all routes beginning with /admin will need the admin role
+#[Route('/admin')]
 class UserController extends AbstractController
 {
-    #[Route('/admin', name: 'app_user_index', methods: ['GET'])]
+    #[Route('/', name: 'app_user_index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('user/index.html.twig', [

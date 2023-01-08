@@ -38,7 +38,24 @@ class UserFixtures extends Fixture
             $manager->persist($user);
         }
 
+        // user with the role user
+        $user = new User();
 
+        $user->setEmail('user@gmail.com');
+        $hashedPassword = $this->passwordHasher->hashPassword(
+            $user,
+            'user000'
+        );
+        $user->setPassword($hashedPassword);
+        $user->setFirstname('John');
+        $user->setLastname('Doe');
+        $user->setCountry($faker->countryCode());
+        $user->setSexe(self::SEXE_CHOICES[rand(0, 2)]);
+        $user->setOccupation(self::OCCUPATION_CHOICES[rand(0, 2)]);
+        $manager->persist($user);
+
+
+        // user with the role admin
         $admin = new User();
 
         $admin->setEmail('admin@gmail.com');
@@ -47,7 +64,7 @@ class UserFixtures extends Fixture
             'admin000'
         );
         $admin->setPassword($hashedPassword);
-        $admin->setFirstname('John');
+        $admin->setFirstname('Jane');
         $admin->setLastname('Doe');
         $admin->setCountry($faker->countryCode());
         $admin->setSexe(self::SEXE_CHOICES[rand(0, 2)]);

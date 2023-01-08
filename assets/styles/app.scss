@@ -11,9 +11,22 @@ body{
     font-family: $font;
 }
 
-.register-container{
+.lemon-container{
     background-image: url(../images/Lemon.png);
     object-fit: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.lemon-container-login{
+    background-image: url(../images/Lemon.png);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 150px;
+    margin: -150px;
+}
+
+.login-container{
+    margin-top: 200px;
 }
