@@ -1,48 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index
+{% block title %}Utilisateurs
 {% endblock %}
 
 {% block body %}
-	<h1>User index</h1>
+	<main class="container-fluid">
+		<h1 class="text-primary my-5 fw-bolder">Liste des utilisateurs</h1>
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Prénom</th>
-				<th>Nom</th>
-				<th>Email</th>
-				<th>Mot de passe</th>
-				<th>Pays</th>
-				<th>Sexe</th>
-				<th>Métier</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for user in users %}
+		<table class="table">
+			<thead class="table-primary">
 				<tr>
-					<td>{{ user.id }}</td>
-					<td>{{ user.firstname }}</td>
-					<td>{{ user.lastname }}</td>
-					<td>{{ user.email }}</td>
-					<td>{{ user.password }}</td>
-					<td>{{ user.country }}</td>
-					<td>{{ user.sexe }}</td>
-					<td>{{ user.occupation }}</td>
-					<td>
-						<a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
-						<a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
-					</td>
+					<th>Id</th>
+					<th>Prénom</th>
+					<th>Nom</th>
+					<th>Email</th>
+					<th>Mot de passe</th>
+					<th>Pays</th>
+					<th>Sexe</th>
+					<th>Métier</th>
+					<th>Actions</th>
 				</tr>
-			{% else %}
-				<tr>
-					<td colspan="6">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-
-	<a href="{{ path('app_user_new') }}">Create new</a>
+			</thead>
+			<tbody>
+				{% for user in users %}
+					<tr>
+						<td>{{ user.id }}</td>
+						<td>{{ user.firstname }}</td>
+						<td>{{ user.lastname }}</td>
+						<td>{{ user.email }}</td>
+						<td>{{ user.password }}</td>
+						<td>{{ user.country }}</td>
+						<td>{{ user.sexe }}</td>
+						<td>{{ user.occupation }}</td>
+						<td class="d-flex flex-column">
+							<a class="btn btn-primary fw-bold my-2" href="{{ path('app_user_show', {'id': user.id}) }}">Voir</a>
+							<a class="btn btn-outline-primary fw-bold" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6">Aucun utilisateur n'a été trouvé.</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<div class="d-flex justify-content-center my-4">
+			<a class="btn btn-primary fw-bold py-3 px-4" href="{{ path('app_user_new') }}">Nouvel utilisateur</a>
+		</div>
+	</main>
 {% endblock %}
