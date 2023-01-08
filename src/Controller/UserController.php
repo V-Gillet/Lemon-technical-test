@@ -23,6 +23,7 @@ class UserController extends AbstractController
         ]);
     }
 
+    //I do not call the geolocalization service here because the admin can add a new user wich is not from its own country
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasher): Response
     {

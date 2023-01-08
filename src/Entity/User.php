@@ -30,8 +30,10 @@ class User implements PasswordAuthenticatedUserInterface, UserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\Column(length: 3)]
-    #[Assert\Length(max: 3)]
+    //3 characters to respect the ISO 3166-1 international country code standard
+    #[ORM\Column(length: 3, options: [
+        "fixed" => true,
+    ])]
     #[Assert\NotBlank]
     #[Assert\Type('string')]
     private ?string $country = null;
