@@ -1,25 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register
+{% block title %}Inscription
 {% endblock %}
 
 {% block body %}
 	<main class="container-md bg_light">
-		<h1 class="text-primary text-center fw-bolder m-0 mt-5">Register</h1>
+		<h1 class="text-primary text-center fw-bolder m-0 mt-5">Inscription</h1>
 		<div class="register-container row align-items-center w-75 m-auto">
 			{{ form_start(registrationForm) }}
 			{{ form_row(registrationForm.firstname) }}
 			{{ form_row(registrationForm.lastname) }}
 			{{ form_row(registrationForm.email) }}
-			{{ form_row(registrationForm.plainPassword, {
-					            label: 'Password'
-					        }) }}
+			{{ form_row(registrationForm.plainPassword) }}
 			{{ form_row(registrationForm.country) }}
 			{{ form_row(registrationForm.sexe) }}
 			{{ form_row(registrationForm.occupation) }}
 			{{ form_row(registrationForm.agreeTerms) }}
 			<div class="d-flex justify-content-center">
-				<button type="submit" class="btn btn-primary fw-bold text-dark px-4">Register</button>
+				<button type="submit" class="btn btn-primary fw-bold text-dark px-4">S'inscrire</button>
 			</div>
 			{{ form_end(registrationForm) }}
 		</div>

@@ -23,35 +23,43 @@ class UserType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
+                'label' => 'Mot de passe',
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez entrer un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Votre mot de passe doit être de {{ limit }} caractères minimum',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
                 ],
             ])
-            ->add('firstname', TextType::class)
-            ->add('lastname', TextType::class)
+            ->add('firstname', TextType::class, [
+                'label' => 'Prénom',
+            ])
+            ->add('lastname', TextType::class, [
+                'label' => 'Nom',
+            ])
             ->add('sexe', ChoiceType::class, [
                 'choices'  => [
-                    'Male' => 'Male',
-                    'Female' => 'Female',
-                    'Other' => 'Other',
+                    'Homme' => 'Male',
+                    'Femme' => 'Female',
+                    'Autre' => 'Other',
                 ],
             ])
-            ->add('country', CountryType::class)
+            ->add('country', CountryType::class, [
+                'label' => 'Pays',
+            ])
             ->add('occupation', ChoiceType::class, [
                 'choices'  => [
                     'Cadre' => 'Cadre',
                     'Employé de la fonction publique' => 'Employé de la fonction publique',
                     'Profession libérale' => 'Profession libérale',
                 ],
+                'label' => 'Métier',
             ]);
     }
 
