@@ -14,7 +14,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class RegistrationController extends AbstractController
 {
-    #[Route('/', name: 'app_register')]
+    #[Route('/inscription', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, GeoPluginAPI $geoPluginAPI): Response
     {
         //Il vaudrait mieux mettre "$request->getClientIp()" mais cela renvoie 127.0.0.1 en environnement local
@@ -40,7 +40,7 @@ class RegistrationController extends AbstractController
             // do anything else you need here, like send an email
             $this->addFlash('success', 'You are now registered');
 
-            return $this->redirectToRoute('app_register');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('registration/register.html.twig', [
