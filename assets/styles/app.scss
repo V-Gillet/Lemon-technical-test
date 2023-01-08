@@ -27,6 +27,15 @@ body{
     margin: -150px;
 }
 
+.lemon-container-home{
+    background-image: url(../images/Lemon.png);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 250px;
+    margin: -250px;
+}
+
 .login-container{
     margin-top: 200px;
 }

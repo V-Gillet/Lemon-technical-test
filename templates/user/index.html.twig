@@ -5,8 +5,11 @@
 
 {% block body %}
 	<main class="container-fluid">
-		<h1 class="text-primary my-5 fw-bolder">Liste des utilisateurs</h1>
-
+		<div class="d-flex align-items-center">
+			<h1 class="text-primary my-5 fw-bolder">Liste des utilisateurs</h1>
+			<a href="{{ path('app_home')}}" class="btn btn-outline-primary py-2 px-3 fw-bold ms-auto">Accueil</a>
+			<a href="{{ path('app_logout')}}" class="btn btn-danger py-2 px-3 fw-bold mx-3">Se déconnecter</a>
+		</div>
 		<table class="table">
 			<thead class="table-primary">
 				<tr>
