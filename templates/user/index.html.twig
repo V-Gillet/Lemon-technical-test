@@ -10,9 +10,13 @@
 		<thead>
 			<tr>
 				<th>Id</th>
+				<th>Prénom</th>
+				<th>Nom</th>
 				<th>Email</th>
-				<th>Password</th>
-				<th>Country</th>
+				<th>Mot de passe</th>
+				<th>Pays</th>
+				<th>Sexe</th>
+				<th>Métier</th>
 				<th>actions</th>
 			</tr>
 		</thead>
@@ -20,9 +24,13 @@
 			{% for user in users %}
 				<tr>
 					<td>{{ user.id }}</td>
+					<td>{{ user.firstname }}</td>
+					<td>{{ user.lastname }}</td>
 					<td>{{ user.email }}</td>
 					<td>{{ user.password }}</td>
 					<td>{{ user.country }}</td>
+					<td>{{ user.sexe }}</td>
+					<td>{{ user.occupation }}</td>
 					<td>
 						<a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
 						<a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
