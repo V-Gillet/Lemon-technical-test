@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Service\GeoPluginAPI;
 use App\Form\RegistrationFormType;
+use App\Controller\MailerController;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class RegistrationController extends AbstractController
 {
     #[Route('/inscription', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, GeoPluginAPI $geoPluginAPI): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, GeoPluginAPI $geoPluginAPI, MailerController $mailer): Response
     {
         //Il vaudrait mieux mettre "$request->getClientIp()" mais cela renvoie 127.0.0.1 en environnement local
         $geolocation = $geoPluginAPI->geolocate(file_get_contents('https://api.ipify.org/'));
@@ -37,8 +38,10 @@ class RegistrationController extends AbstractController
 
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
-            $this->addFlash('success', 'You are now registered');
+
+            // do anything else you need here, like send an email;
+            $mailer->sendEmail($user);
+            $mailer->sendEmailToAdmin($user);
 
             return $this->redirectToRoute('app_login');
         }

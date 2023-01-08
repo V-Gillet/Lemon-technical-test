@@ -1,0 +1,27 @@
+<h1>Récapitulatif des informations du nouvel utilisateur #
+	{{user.id}}</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Prénom</th>
+			<th>Nom</th>
+			<th>Email</th>
+			<th>Pays</th>
+			<th>Sexe</th>
+			<th>Métier</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{ user.id }}</td>
+			<td>{{ user.firstname }}</td>
+			<td>{{ user.lastname }}</td>
+			<td>{{ user.email }}</td>
+			<td>{{ user.country }}</td>
+			<td>{{ user.sexe }}</td>
+			<td>{{ user.occupation }}</td>
+		</tr>
+	</tbody>
+</table>
