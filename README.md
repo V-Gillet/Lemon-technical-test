@@ -10,7 +10,7 @@ Step by step :
 - run 'php bin/console doctrine:database:create' to create the database. Or 'symfony console d:d:c' if you have the Symfony CLI installed : https://symfony.com/download#step-1-install-symfony-cli
 - run 'php bin/console doctrine:migration:migrate' to execute the migration files, or 'symfony console d:m:m' with the CLI
 - run 'php bin/console doctrine:fixtures:load' to load the fixtures of the User entity, or 'symfony console d:f:l' with the CLI
-- launch the symfony server and webpack to start navigate
+- launch the symfony server : 'symfony server:start' and webpack : 'yarn build' to start navigate
 
 ## Reminder
 
@@ -35,7 +35,7 @@ Outils de développement à utiliser : libre"
 
 ## Project planning
 
-I used github projects to plan and to delimite the test in User Stories, then I made a repository with a main, dev and features branches with pull requests to organize my work.
+I used github projects to plan and to delimit the test in User Stories, then I made a repository with a main, dev and features branches with pull requests to organize my work.
 Basicaly, I worked with a small Agile methodology.
 
 ## UI/UX design
@@ -44,11 +44,12 @@ I kept the UI very simple as the job offer seems mostly oriented backEnd. The ad
 
 For the UX, the application is fully navigable with an access management for 2 roles : User and Admin. I made the choice to not make a navbar since the application is simple with few navigables pages and items.
 
-If you need to see a thorough UX/UI design, don't hesitate to tell me. I can take time starting this week-end to make a figma and make a new, more advanced, UI.
+If you need to see a thorough UX/UI design, don't hesitate to tell me. I can take time starting this week-end to make a figma and make a new, more advanced, UI for the homepage.
 
 ## Geolocation
 
-The API I used for the geolocation feature is geoplugin : https://www.geoplugin.com/. I consumed the API with the http client component of Symfony wich I configured in the framework.yaml to scope the geoplugin uri.
+The API I used for the geolocation feature is geoplugin : https://www.geoplugin.com/. I consumed the API with the http client component of Symfony wich I configured in the framework.yaml to scope the geoplugin uri. To get my IP on a development environement I used a seconde API : https://api.ipify.org/
+Both API do not require any key.
 GeoPlugin is capable of giving the Region but I did not implement the feature because I did not test it enough.
 The autocomplation of the register form is made by setting the country code of the new user before saving it's data in the database so he can still change the country.
 
@@ -57,6 +58,18 @@ The autocomplation of the register form is made by setting the country code of t
 I used Mailer wich I configured in mailer.yaml with the sender adress. Then I templated to mails, one for the admin, one for the new user with his/her informations wich are sent when a new user registers.
 To test this feature I used a mailer DSN called mailtrap : https://mailtrap.io
 
-## Administration
+## Administration/Security
 
 In the admin route you can CRUD (Create Read Update Delete) any user registered to the application.
+Every route starting by /admin is secured by the ROLE_ADMIN configured in the security.yaml, each ADMIN is also a USER.
+In order to connect, you can use this account :
+
+- email : admin@mail.com
+- password : admin000
+
+When connected as admin, a button appear on the / route that leads to the /admin route.
+
+The homepage is secured with the ROLE_USER, you can use these credentials to connect and test it :
+
+- email : user@mail.com
+- password : user000
