@@ -1,8 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home
+{% block title %}Accueil
 {% endblock %}
 
 {% block body %}
-	<main></main>
+	<main class="container lemon-container-home m-auto">
+		<h1 class="text-dark text-center mt-5">Bonjour, vous êtes connecté en tant que :
+			{{user.firstname ~ ' ' ~ user.lastname}}</h1>
+		<div class="d-flex justify-content-center mt-5">
+			{% if is_granted('ROLE_ADMIN') %}
+				<a href="{{ path('app_user_index')}}" class="btn btn-primary fw-bold py-3 px-4 mx-3">Administration</a>
+			{% endif %}
+			<a href="{{ path('app_logout')}}" class="btn btn-danger fw-bold py-3 px-4">Se déconnecter</a>
+		</div>
+	</main>
 {% endblock %}

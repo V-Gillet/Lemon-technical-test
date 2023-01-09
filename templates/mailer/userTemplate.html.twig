@@ -1,0 +1,29 @@
+<h1>Bienvenue
+	{{user.firstname ~ ' ' ~ user.lastname}}!</h1>
+
+<h2>Vous vous êtes inscrit(e) avec les informations suivantes :</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Prénom</th>
+			<th>Nom</th>
+			<th>Email</th>
+			<th>Pays</th>
+			<th>Sexe</th>
+			<th>Métier</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{ user.firstname }}</td>
+			<td>{{ user.lastname }}</td>
+			<td>
+				<code>{{ email.to[0].address }}</code>
+			</td>
+			<td>{{ user.country|country_name('fr') }}</td>
+			<td>{{ user.sexe }}</td>
+			<td>{{ user.occupation }}</td>
+		</tr>
+	</tbody>
+</table>

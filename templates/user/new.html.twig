@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel utilisateur
+{% endblock %}
+
+{% block body %}
+	<main class="container-fluid">
+		<h1 class="text-primary fw-bolder text-center my-5">Création du nouvel utilisateur</h1>
+		<div class="row align-items-center m-auto w-75">
+			{{ include('user/_formNew.html.twig') }}
+		</div>
+	</main>
+{% endblock %}
