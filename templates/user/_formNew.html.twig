@@ -1,11 +1,5 @@
 {{ form_start(form) }}
-{{ form_row(form.firstname) }}
-{{ form_row(form.lastname) }}
-{{ form_row(form.email) }}
-{{ form_row(form.country) }}
-{{ form_row(form.sexe) }}
-{{ form_row(form.occupation) }}
-{{ form_widget(form._token) }}
+{{ form_widget(form) }}
 <div class="row mt-5">
 	<a class="btn btn-outline-danger d-flex align-items-center justify-content-center col-6 m-auto py-3 px-4 w-25" href="{{ path('app_user_index') }}">
 		<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-left" viewbox="0 0 16 16">
@@ -15,4 +9,4 @@
 	</a>
 	<button class="btn btn-primary fw-bold py-3 px-4 col-6 m-auto w-25">{{ button_label|default('Sauvegarder') }}</button>
 </div>
-{{ form_end(form, {'render_rest': false}) }}
+{{ form_end(form) }}
