@@ -21,7 +21,7 @@
 			<td>
 				<code>{{ email.to[0].address }}</code>
 			</td>
-			<td>{{ user.country }}</td>
+			<td>{{ user.country|country_name('fr') }}</td>
 			<td>{{ user.sexe }}</td>
 			<td>{{ user.occupation }}</td>
 		</tr>

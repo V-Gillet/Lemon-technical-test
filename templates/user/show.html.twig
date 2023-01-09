@@ -26,12 +26,8 @@
 					<td>{{ user.email }}</td>
 				</tr>
 				<tr>
-					<th class="table-primary">Mot de passe</th>
-					<td>{{ user.password }}</td>
-				</tr>
-				<tr>
 					<th class="table-primary">Pays</th>
-					<td>{{ user.country }}</td>
+					<td>{{ user.country|country_name('fr') }}</td>
 				</tr>
 				<tr>
 					<th class="table-primary">Sexe</th>

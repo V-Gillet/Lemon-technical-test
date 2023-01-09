@@ -30,7 +30,11 @@ class UserFixtures extends Fixture
             $user->setFirstname($faker->firstName());
             $user->setLastname($faker->lastName());
             $user->setEmail($faker->email());
-            $user->setPassword($faker->password());
+            $hashedPassword = $this->passwordHasher->hashPassword(
+                $user,
+                $faker->password()
+            );
+            $user->setPassword($hashedPassword);
             $user->setCountry($faker->countryCode());
             $user->setSexe(self::SEXE_CHOICES[rand(0, 2)]);
             $user->setOccupation(self::OCCUPATION_CHOICES[rand(0, 2)]);

@@ -7,7 +7,6 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class GeoPluginAPI
 {
-
     public function __construct(private HttpClientInterface $geopluginClient)
     {
     }
