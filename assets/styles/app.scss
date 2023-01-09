@@ -11,13 +11,6 @@ body{
     font-family: $font;
 }
 
-.lemon-container{
-    background-image: url(../images/Lemon.png);
-    object-fit: fill;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 .lemon-container-login{
     background-image: url(../images/Lemon.png);
     object-fit: cover;
@@ -38,4 +31,31 @@ body{
 
 .login-container{
     margin-top: 200px;
+    max-width :750px;
+}
+
+.lemon-img{
+    max-width :650px;
+}
+
+.form-container{
+    max-width : 650px; 
+}
+
+.register-form{
+    max-width : 600px;
+}
+
+.inputs-form{
+    max-width : 550px;
+}
+
+@media screen and (max-width: 1200px){
+    .lemon-img{
+        display : none;
+    }
+    .register-form{
+        width : 90%;
+    }
+    
 }

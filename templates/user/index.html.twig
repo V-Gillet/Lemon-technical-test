@@ -7,7 +7,7 @@
 	<main class="container-fluid">
 		<div class="d-flex align-items-center">
 			<h1 class="text-primary my-5 fw-bolder">Liste des utilisateurs</h1>
-			<a href="{{ path('app_home')}}" class="btn btn-outline-primary py-2 px-3 fw-bold ms-auto">Accueil</a>
+			<a href="{{ path('app_home')}}" class="btn btn-outline-primary py-2 px-3 fw-bold ms-auto text-dark">Accueil</a>
 			<a class="btn btn-primary fw-bold py-2 px-3 mx-3" href="{{ path('app_user_new') }}">Nouvel utilisateur</a>
 			<a href="{{ path('app_logout')}}" class="btn btn-danger py-2 px-3 fw-bold">Se déconnecter</a>
 		</div>
@@ -36,7 +36,7 @@
 						<td>{{ user.occupation }}</td>
 						<td class="d-flex flex-column">
 							<a class="btn btn-primary fw-bold my-2" href="{{ path('app_user_show', {'id': user.id}) }}">Voir</a>
-							<a class="btn btn-outline-primary fw-bold" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+							<a class="btn btn-outline-primary fw-bold text-dark" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
 						</td>
 					</tr>
 				{% else %}

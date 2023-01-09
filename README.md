@@ -35,7 +35,7 @@ Outils de développement à utiliser : libre"
 
 ## Project planning
 
-I used github projects to plan to delimite the test in User Stories, then I made a repository with a main, dev and features branches with pull requests to organize my work.
+I used github projects to plan and to delimite the test in User Stories, then I made a repository with a main, dev and features branches with pull requests to organize my work.
 Basicaly, I worked with a small Agile methodology.
 
 ## UI/UX design
@@ -44,7 +44,7 @@ I kept the UI very simple as the job offer seems mostly oriented backEnd. The ad
 
 For the UX, the application is fully navigable with an access management for 2 roles : User and Admin. I made the choice to not make a navbar since the application is simple with few navigables pages and items.
 
-If you need to see a thorough UX/UI design in my part, don't hesitate to tell me. I can take time starting this week-end to make a figma and make a new UI more advanced.
+If you need to see a thorough UX/UI design, don't hesitate to tell me. I can take time starting this week-end to make a figma and make a new, more advanced, UI.
 
 ## Geolocation
 
