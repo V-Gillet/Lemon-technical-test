@@ -18,7 +18,7 @@ class RegistrationController extends AbstractController
     #[Route('/inscription', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, GeoPluginAPI $geoPluginAPI, MailerService $mailer): Response
     {
-        //Il vaudrait mieux mettre "$request->getClientIp()" mais cela renvoie 127.0.0.1 en environnement local
+        //A better option would be to put "$request->getClientIp()" but it gives 127.0.0.1 IP in dev environement
         $geolocation = $geoPluginAPI->geolocate(file_get_contents('https://api.ipify.org/'));
 
         $user = new User();
@@ -28,7 +28,6 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -39,7 +38,6 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // do anything else you need here, like send an email;
             $mailer->sendEmail($user);
             $mailer->sendEmailToAdmin($user);
 

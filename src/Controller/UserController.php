@@ -19,6 +19,7 @@ class UserController extends AbstractController
     public function index(UserRepository $userRepository): Response
     {
         return $this->render('user/index.html.twig', [
+            //This will group users by country code so it won't be ordered by alphabetical order in full country name
             'users' => $userRepository->findBy(
                 [],
                 ['country' => 'ASC']
@@ -27,7 +28,7 @@ class UserController extends AbstractController
     }
 
     //I do not call the geolocalization service here because the admin can add a new user wich is not from its own country
-    #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
+    #[Route('/nouveau', name: 'app_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasher): Response
     {
         $user = new User();
@@ -61,7 +62,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/modifier', name: 'app_user_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository): Response
     {
         $form = $this->createForm(UserType::class, $user);
