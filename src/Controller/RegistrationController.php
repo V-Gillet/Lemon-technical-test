@@ -22,6 +22,7 @@ class RegistrationController extends AbstractController
         $geolocation = $geoPluginAPI->geolocate(file_get_contents('https://api.ipify.org/'));
 
         $user = new User();
+        //Set the country of the user and act as an autocomplete of its location
         $user->setCountry($geolocation['geoplugin_countryCode']);
 
         $form = $this->createForm(RegistrationFormType::class, $user);

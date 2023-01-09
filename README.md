@@ -35,7 +35,7 @@ Outils de développement à utiliser : libre"
 
 ## Project planning
 
-I used github projects to plan and to delimite the test in User Stories, then I made a repository with a main, dev and features branches with pull requests to organize my work.
+I used github projects to plan and to delimit the test in User Stories, then I made a repository with a main, dev and features branches with pull requests to organize my work.
 Basicaly, I worked with a small Agile methodology.
 
 ## UI/UX design
@@ -44,12 +44,12 @@ I kept the UI very simple as the job offer seems mostly oriented backEnd. The ad
 
 For the UX, the application is fully navigable with an access management for 2 roles : User and Admin. I made the choice to not make a navbar since the application is simple with few navigables pages and items.
 
-If you need to see a thorough UX/UI design, don't hesitate to tell me. I can take time starting this week-end to make a figma and make a new, more advanced, UI.
+If you need to see a thorough UX/UI design, don't hesitate to tell me. I can take time starting this week-end to make a figma and make a new, more advanced, UI for the homepage.
 
 ## Geolocation
 
 The API I used for the geolocation feature is geoplugin : https://www.geoplugin.com/. I consumed the API with the http client component of Symfony wich I configured in the framework.yaml to scope the geoplugin uri. To get my IP on a development environement I used a seconde API : https://api.ipify.org/
-Each APi does not require any API key.
+Both API do not require any key.
 GeoPlugin is capable of giving the Region but I did not implement the feature because I did not test it enough.
 The autocomplation of the register form is made by setting the country code of the new user before saving it's data in the database so he can still change the country.
 
