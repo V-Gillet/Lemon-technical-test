@@ -1,5 +1,13 @@
 # Lemon-technical-test
 
+## Environnement
+
+The main technologies used are :
+
+- Symfony version 6.2.3
+- Bootstrap 5
+- mysql version 8
+
 ## Setup
 
 Step by step :
