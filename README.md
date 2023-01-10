@@ -12,7 +12,7 @@ The main technologies used are :
 
 Step by step :
 
-- create your env.local file using the .env and setup your DATABASE_URL
+- create your env.local file using the .env and setup your DATABASE_URL and your MAILER_DSN
 - run 'composer install' to install all the dependencies
 - run 'yarn install' to install webpack encore
 - run 'php bin/console doctrine:database:create' to create the database. Or 'symfony console d:d:c' if you have the Symfony CLI installed : https://symfony.com/download#step-1-install-symfony-cli
